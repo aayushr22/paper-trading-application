@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, CardContent, Typography, Card } from "@mui/material/";
+import { Grid, CardContent, Typography, Card } from "@mui/material";
 import Title from "../Template/Title";
 import styles from "./Search.module.css";
 import clsx from "clsx";

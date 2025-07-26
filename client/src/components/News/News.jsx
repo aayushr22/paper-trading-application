@@ -9,7 +9,7 @@ import {
   Link,
   Box,
 } from "@mui/material";
-import { makeStyles } from "@mui/material/styles";
+import { makeStyles } from "@mui/styles";
 import { Skeleton } from '@mui/material';
 import Axios from "axios";
 import config from "../../config/Config";

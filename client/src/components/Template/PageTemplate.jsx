@@ -22,7 +22,7 @@ import News from "../News/News";
 import Search from "../Search/Search";
 import SettingsModal from "./SettingsModal";
 import Axios from "axios";
-import { makeStyles } from "@mui/material/styles";
+import { makeStyles } from "@mui/styles";
 import config from "../../config/Config";
 
 const drawerWidth = 240;
