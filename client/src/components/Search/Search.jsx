@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import UserContext from "../../context/UserContext";
-import { TextField, Container, Grid, Box, Card } from "@mui/material/";
-import Autocomplete, {
-  createFilterOptions,
-} from "@material-ui/lab/Autocomplete";
-import { makeStyles } from "@mui/material/styles";
+import { TextField, Container, Grid, Box, Card, Autocomplete } from "@mui/material/";
+import { createFilterOptions } from "@mui/material/Autocomplete";
+import { makeStyles } from "@mui/styles";
 import LineChart from "../Template/LineChart";
 import BarChart from "./BarChart";
 import Copyright from "../Template/Copyright";
