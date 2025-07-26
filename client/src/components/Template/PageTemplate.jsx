@@ -12,9 +12,9 @@ import {
   Typography,
   Divider,
   IconButton,
-} from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import Navbar from "../Template/Navbar";
 import SecondNavbar from "../Template/SecondNavbar";
 import Dashboard from "../Dashboard/Dashboard";
@@ -22,7 +22,7 @@ import News from "../News/News";
 import Search from "../Search/Search";
 import SettingsModal from "./SettingsModal";
 import Axios from "axios";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/material/styles";
 import config from "../../config/Config";
 
 const drawerWidth = 240;

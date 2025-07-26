@@ -11,8 +11,8 @@ import {
   IconButton,
   Grid,
   Card,
-} from "@material-ui/core/";
-import CloseIcon from "@material-ui/icons/Close";
+} from "@mui/material/";
+import CloseIcon from "@mui/icons-material/Close";
 import styles from "./Search.module.css";
 import { motion } from "framer-motion";
 import Axios from "axios";

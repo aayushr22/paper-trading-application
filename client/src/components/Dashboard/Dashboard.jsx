@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "../Template/PageTemplate.module.css";
 import clsx from "clsx";
-import { makeStyles } from "@material-ui/core/styles";
-import { Box, Container, Grid, Paper } from "@material-ui/core";
+import { makeStyles } from "@mui/material/styles";
+import { Box, Container, Grid, Paper } from "@mui/material";
 import Chart from "./Chart";
 import Balance from "./Balance";
 import Purchases from "./Purchases";
