@@ -10,7 +10,7 @@ import {
   Box,
 } from "@mui/material";
 import { makeStyles } from "@mui/material/styles";
-import Skeleton from "@material-ui/lab/Skeleton";
+import { Skeleton } from '@mui/material';
 import Axios from "axios";
 import config from "../../config/Config";
 
