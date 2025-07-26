@@ -1,0 +1,62 @@
+.positive {
+  color: #28a745 !important;
+  font-weight: bold;
+  background-color: rgba(40, 167, 69, 0.1);
+  border-radius: 8px;
+  padding: 6px 12px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.positive:hover {
+  background-color: rgba(40, 167, 69, 0.2);
+  transform: scale(1.03);
+}
+
+.negative {
+  color: #dc3545 !important;
+  font-weight: bold;
+  background-color: rgba(220, 53, 69, 0.1);
+  border-radius: 8px;
+  padding: 6px 12px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.negative:hover {
+  background-color: rgba(220, 53, 69, 0.2);
+  transform: scale(1.03);
+}
+
+.depositContext {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(200, 200, 200, 0.3);
+  border-radius: 16px;
+  padding: 24px 32px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.depositContext:hover {
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+}
+
+.depositContext h2,
+.depositContext h3,
+.depositContext h4,
+.depositContext .MuiTypography-h4,
+.depositContext .MuiTypography-h3,
+.depositContext .MuiTypography-h2 {
+  font-size: 2rem !important;
+  font-weight: 600;
+  color: #212529;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  overflow-wrap: break-word;
+}
+
+.addMargin {
+  margin-top: 32px;
+}

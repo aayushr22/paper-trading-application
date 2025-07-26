@@ -1,0 +1,96 @@
+.paper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 50px 40px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  width: 100%;
+  max-width: 500px;
+  margin: 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.paper:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  transform: translateY(-8px) scale(1.01);
+}
+
+.form {
+  width: 100%;
+  margin-top: 25px;
+}
+
+.submit {
+  margin-top: 25px !important;
+  margin-bottom: 25px !important;
+  background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%) !important;
+  width: 100%;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.35);
+  transition: all 0.3s ease-in-out;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  padding: 14px 0;
+  color: #fff;
+  border: none;
+}
+
+.submit:hover {
+  background: linear-gradient(135deg, #059669 0%, #2563eb 100%) !important;
+  box-shadow: 0 12px 30px rgba(59, 130, 246, 0.55);
+  transform: translateY(-3px) scale(1.01);
+}
+
+.submit:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+}
+
+.background {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  background-size: 300% 300%;
+  animation: gradient 18s ease infinite;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 60%, rgba(75, 85, 99, 0.2), transparent 50%),
+              radial-gradient(circle at 70% 30%, rgba(107, 114, 128, 0.2), transparent 50%),
+              radial-gradient(circle at 50% 90%, rgba(55, 65, 81, 0.2), transparent 50%);
+  animation: float 25s ease-in-out infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-15px) rotate(1deg); }
+  66% { transform: translateY(12px) rotate(-1deg); }
+}
