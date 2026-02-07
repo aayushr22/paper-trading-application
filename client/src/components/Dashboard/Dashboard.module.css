@@ -1,7 +1,9 @@
+/* Dashboard Module - Simplified */
+
 .positive {
-  color: #28a745 !important;
-  font-weight: bold;
-  background-color: rgba(40, 167, 69, 0.1);
+  color: #10b981 !important;
+  font-weight: 600;
+  background-color: rgba(16, 185, 129, 0.1);
   border-radius: 8px;
   padding: 6px 12px;
   display: inline-block;
@@ -9,14 +11,14 @@
 }
 
 .positive:hover {
-  background-color: rgba(40, 167, 69, 0.2);
-  transform: scale(1.03);
+  background-color: rgba(16, 185, 129, 0.15);
+  transform: translateY(-1px);
 }
 
 .negative {
-  color: #dc3545 !important;
-  font-weight: bold;
-  background-color: rgba(220, 53, 69, 0.1);
+  color: #ef4444 !important;
+  font-weight: 600;
+  background-color: rgba(239, 68, 68, 0.1);
   border-radius: 8px;
   padding: 6px 12px;
   display: inline-block;
@@ -24,22 +26,20 @@
 }
 
 .negative:hover {
-  background-color: rgba(220, 53, 69, 0.2);
-  transform: scale(1.03);
+  background-color: rgba(239, 68, 68, 0.15);
+  transform: translateY(-1px);
 }
 
 .depositContext {
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(200, 200, 200, 0.3);
-  border-radius: 16px;
+  background: white;
+  border-radius: 12px;
   padding: 24px 32px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
 .depositContext:hover {
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
   transform: translateY(-4px);
 }
 
@@ -51,7 +51,7 @@
 .depositContext .MuiTypography-h2 {
   font-size: 2rem !important;
   font-weight: 600;
-  color: #212529;
+  color: #1e293b;
   margin-top: 8px;
   margin-bottom: 8px;
   overflow-wrap: break-word;

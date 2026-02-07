@@ -85,7 +85,7 @@ const StockCard = ({ setPurchasedStocks, purchasedStocks, currentStock }) => {
     };
 
     getData();
-  }, []);
+  }, [currentStock.ticker]);
 
   return (
     <div className={styles.root}>
@@ -139,6 +139,39 @@ const Search = ({ setPurchasedStocks, purchasedStocks }) => {
   const classes = useStyles();
   const [value, setValue] = useState(null);
   const [currentStock, setCurrentStock] = useState(null);
+  const [stocks, setStocks] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch stocks on component mount
+  useEffect(() => {
+    const fetchStocks = async () => {
+      try {
+        const url = config.base_url + "/api/stock/search";
+        const response = await Axios.get(url);
+        
+        if (response.data.status === "success") {
+          // Map the stock data to the format needed for Autocomplete
+          const formattedStocks = response.data.stocks.map(stock => ({
+            name: stock.name,
+            ticker: stock.ticker,
+            description: stock.description,
+            exchangeCode: stock.exchangeCode,
+            startDate: stock.startDate,
+            endDate: stock.endDate,
+          }));
+          setStocks(formattedStocks);
+        }
+      } catch (error) {
+        console.error("Error fetching stocks:", error);
+        // Fallback to hardcoded stocks if API fails
+        setStocks(fallbackStocks);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchStocks();
+  }, []);
 
   const onSearchChange = (event, newValue) => {
     setValue(newValue);
@@ -166,10 +199,21 @@ const Search = ({ setPurchasedStocks, purchasedStocks }) => {
         handleHomeEndKeys
         id="stock-search-bar"
         options={stocks}
+        loading={loading}
         getOptionLabel={(option) => {
           return option.name;
         }}
-        renderOption={(option) => option.name}
+        renderOption={(props, option) => (
+          <li {...props}>
+            <div>
+              <div style={{ fontWeight: 600 }}>{option.name}</div>
+              <div style={{ fontSize: '0.875rem', color: '#666' }}>
+                {option.ticker}
+              </div>
+            </div>
+          </li>
+        )}
+        className={styles.searchBox}
         style={{
           maxWidth: "700px",
           margin: "30px auto",
@@ -180,6 +224,7 @@ const Search = ({ setPurchasedStocks, purchasedStocks }) => {
             {...params}
             label="Search for a stock"
             variant="outlined"
+            placeholder="Search by company name or ticker symbol..."
           />
         )}
       />
@@ -197,28 +242,29 @@ const Search = ({ setPurchasedStocks, purchasedStocks }) => {
   );
 };
 
-const stocks = [
-  { name: "Apple", ticker: "AAPL" },
-  { name: "Amazon", ticker: "AMZN" },
-  { name: "Google", ticker: "GOOG" },
-  { name: "Microsoft", ticker: "MSFT" },
-  { name: "Walmart", ticker: "WMT" },
-  { name: "Intel", ticker: "INTC" },
-  { name: "American Express", ticker: "AXP" },
-  { name: "Boeing", ticker: "BA" },
-  { name: "Cisco", ticker: "CSCO" },
-  { name: "Goldman Sachs", ticker: "GS" },
-  { name: "Johson & Johnson", ticker: "JNJ" },
-  { name: "Coca-Cola", ticker: "KO" },
-  { name: "McDonald's", ticker: "MCD" },
-  { name: "Nike", ticker: "NKE" },
-  { name: "Procter & Gamble", ticker: "PG" },
-  { name: "Verizon", ticker: "VZ" },
-  { name: "Salesforce", ticker: "CRM" },
-  { name: "Visa", ticker: "V" },
-  { name: "UnitedHealth", ticker: "UNH" },
-  { name: "IBM", ticker: "IBM" },
-  { name: "Chevron", ticker: "CVX" },
+// Fallback stocks in case API is unavailable
+const fallbackStocks = [
+  { name: "Apple Inc", ticker: "AAPL" },
+  { name: "Amazoncom Inc", ticker: "AMZN" },
+  { name: "Alphabet Inc (Class C)", ticker: "GOOG" },
+  { name: "Microsoft Corp", ticker: "MSFT" },
+  { name: "Walmart Inc", ticker: "WMT" },
+  { name: "Intel Corp", ticker: "INTC" },
+  { name: "American Express Company", ticker: "AXP" },
+  { name: "The Boeing Company", ticker: "BA" },
+  { name: "Cisco Systems Inc", ticker: "CSCO" },
+  { name: "Goldman Sachs Group Inc", ticker: "GS" },
+  { name: "Johnson Johnson", ticker: "JNJ" },
+  { name: "The CocaCola Company", ticker: "KO" },
+  { name: "McDonalds Corp", ticker: "MCD" },
+  { name: "Nike Inc", ticker: "NKE" },
+  { name: "Procter & Gamble Company", ticker: "PG" },
+  { name: "Verizon Communications Inc", ticker: "VZ" },
+  { name: "Salesforce.Com Inc", ticker: "CRM" },
+  { name: "Visa Inc", ticker: "V" },
+  { name: "UnitedHealth Group Inc", ticker: "UNH" },
+  { name: "International Business Machines Corp", ticker: "IBM" },
+  { name: "Chevron Corp", ticker: "CVX" },
 ];
 
 export default Search;
