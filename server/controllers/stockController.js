@@ -227,3 +227,36 @@ exports.resetAccount = async (req, res) => {
     });
   }
 };
+
+// ADD THIS NEW SEARCH FUNCTION
+exports.searchStocks = async (req, res) => {
+  try {
+    const { query } = req.query;
+
+    if (!query) {
+      return res.status(200).json({
+        status: "success",
+        stocks: data.stockData,
+      });
+    }
+
+    // Search by ticker or name (case insensitive)
+    const searchQuery = query.toLowerCase();
+    const filteredStocks = data.stockData.filter((stock) => {
+      return (
+        stock.ticker.toLowerCase().includes(searchQuery) ||
+        stock.name.toLowerCase().includes(searchQuery)
+      );
+    });
+
+    return res.status(200).json({
+      status: "success",
+      stocks: filteredStocks,
+    });
+  } catch (error) {
+    return res.status(200).json({
+      status: "fail",
+      message: "Something unexpected happened.",
+    });
+  }
+};
