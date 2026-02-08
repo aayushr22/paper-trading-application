@@ -162,7 +162,7 @@ const Search = ({ setPurchasedStocks, purchasedStocks }) => {
           setStocks(formattedStocks);
         }
       } catch (error) {
-        console.error("Error fetching stocks:", error);
+        // console.error("Error fetching stocks:", error);
         // Fallback to hardcoded stocks if API fails
         setStocks(fallbackStocks);
       } finally {
